@@ -27,7 +27,7 @@ h1 {
     font-size: 2.25rem;
     font-weight: 300;
     color: #fff;
-    margin: 2em 0;
+    margin: 0;
 }
 
 h1 + p {
@@ -57,9 +57,10 @@ h2 + p {
     color: #f18119;
     text-transform: uppercase;
     order: -1;
-    border-top: 5px solid #f18119;
+    border-top: 5px solid transparent;
+    border-image: linear-gradient(to left, #ff713b, #ffa51d) 1;
     margin: 0;
-    padding-top: .5em;
+    padding-top: 0.5em;
 }
 
 .fine-print {
@@ -79,11 +80,14 @@ strong {
 .intro {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     background-color: #404040;
-    background-image: url(images/dark-ribs.jpg);
+    background-image: url(images/ribs.jpg);
+    background-blend-mode: multiply;
     background-size: cover;
     background-position: center;
     padding: 0 0.5em 2em;
+    min-height: 50vh;
 }
 
 /* =================
@@ -92,4 +96,102 @@ strong {
 
 .main-content {
     padding: 2em 1em;
+}
+
+.intro > *,
+.main-content > * {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =================
+   Form
+   ================= */
+
+.email-collector {
+    width: 80%;
+    max-width: 300px;
+}
+
+input,
+.btn {
+    font-family: inherit;
+    text-align: inherit;
+    width: 100%;
+    border-radius: 5px;
+}
+
+input {
+    font-size: inherit;
+    color: inherit;
+    margin-bottom: 0.75em;
+    padding: 0.25em;
+    border: 1px solid #404040;
+    transform: scale(1);
+    transition: transform 250ms;
+    outline: 0;
+}
+
+input:focus {
+    transform: scale(1.05);
+}
+
+.btn {
+    display: inline-block;
+    font-size: 0.625rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 1.25em 1.5em;
+    border: 0;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(to left, #ff713b, #ffa51d);
+    color: #fff;
+    transform: scale(1);
+    transition: transform 250ms;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    transform: scale(1.1);
+}
+
+/* =================
+   Media queries 
+   ================= */
+
+@media (min-width: 600px) {
+    body {
+        font-size: 1.125rem;
+        display: flex;
+        min-height: 100vh;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2,
+    h1 + p {
+        font-size: 1.75rem;
+    }
+
+    .top-text {
+        font-size: 0.75rem;
+    }
+
+    .intro,
+    .main-content {
+        width: 50%;
+    }
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
